@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="root" class="container">
+        <header class="header">
+            <img src="img/platzi-logo.png" alt="" class="logo">
+            <h1>Mis Cursos de Platzi</h1>
+        </header>
+
+        <div class="header__search">
+            <input type="text" placeholder="Titulo del curso" v-model="title" class="cajas caja-texto">
+            <input type="text" placeholder="Hora" v-model="time" class="cajas caja-numero">
+            <button v-on:click="addCourser" class="boton">+</button>
+        </div>
+
+        </fieldset>
+        <div>
+            <div v-if="courses == 0" class="cursos-text">
+                <p>Aun no has realisado ningun curso</p>
+            </div>
+            <div v-else>
+                <h3>Lista de Cursos</h3><br />
+                <div class="cursos-contenedor">
+                    <ul v-for="p in courses" v-bind:key='p.title'>
+                        <li class="lista-cursos">{{p.title}}, con {{p.time}} horas</li>
+                    </ul>
+                </div>
+                <br /><br /><hr />
+
+
+                <p>
+                    Llevas <strong>{{totalTime}} horas</strong> aprendiendo en Platzi.
+                    <b>#NuncaParesDeAprender</b>
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
